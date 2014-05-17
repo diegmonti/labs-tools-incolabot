@@ -46,7 +46,7 @@
 
     <h3>Log of bar.py</h3>
 
-    <pre class="txt" style="font-family:monospace;"><?php echo file_get_contents( "../log/bar.txt" ); ?></pre>
+    <pre class="txt" style="font-family:monospace;"><?php echo utf8_encode(file_get_contents( "../log/bar.txt" )); ?></pre>
 
     </div>
 
