@@ -31,7 +31,7 @@
           <a class="brand" href="index.html">IncolaBot</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="index.html">This project</a></li>
+              <li><a href="index.html">This project</a></li>
               <li><a href="http://it.wikipedia.org/wiki/Utente:Incola">My userpage</a></li>
               <li><a href="http://it.wikipedia.org/wiki/Utente:IncolaBot">My bot</a></li>
         <li><a href="http://it.wikipedia.org/w/index.php?title=Discussioni_utente:Incola&action=edit&section=new">Contact me</a></li>
@@ -44,7 +44,7 @@
 
     <div class="container">
 
-    <h2>Log of bar.py</h2>
+    <h3>Log of bar.py</h3>
 
     <pre class="txt" style="font-family:monospace;"><?php echo file_get_contents( "../log/bar.txt" ); ?></pre>
 
