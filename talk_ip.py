@@ -4,7 +4,11 @@
 # Modified from: https://it.wikipedia.org/wiki/Utente:BimBot/Scripts#discussioneanonimi3.py
 #
 
-import pywikibot, re
+import pywikibot, re, commands
+from time import *
+
+os.environ['TZ'] = 'Europe/Rome'
+inizio=time()
 
 args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
@@ -19,7 +23,7 @@ def main():
 
         oldtext = talk.get()
 
-        if checkStatic(talk.titleWithoutNamespace()):
+        if checkStatic(talk.title(withNamespace=False)):
             newtext = oldtext + u'\n[[Categoria:IP statici]]'
             pywikibot.showDiff(oldtext, newtext)
 	    pywikibot.setAction(u'Bot: categorizzo in [[:Categoria:IP statici]]')
@@ -41,3 +45,6 @@ def checkStatic(ip):
 if __name__ == "__main__":
     try:
         main()
+    finally:
+       fine=time()
+       print "Run time: ", fine-inizio
