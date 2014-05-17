@@ -7,8 +7,7 @@
 import pywikibot, re, commands
 from time import *
 
-os.environ['TZ'] = 'Europe/Rome'
-inizio=time()
+start=time()
 
 args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
@@ -46,5 +45,5 @@ if __name__ == "__main__":
     try:
         main()
     finally:
-       fine=time()
-       print "Run time: ", fine-inizio
+       end=time()
+       print "Run time: ", end-start
