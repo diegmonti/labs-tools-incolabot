@@ -4,16 +4,24 @@
 # Modified from: https://it.wikipedia.org/wiki/Utente:BimBot/Scripts#discussioneanonimi3.py
 #
 
-import pywikibot, re, commands
+import pywikibot, re, subprocess
+from pywikibot import pagegenerators
 from time import *
 
 start=time()
+
+path = '/data/project/lists/output/itwiki/EGO/Discussioni/Discussioni_utenti_anonimi'
+
+ls = subprocess.Popen(('ls', path), stdout=subprocess.PIPE)
+fileName = subprocess.check_output(('tail', '-1'), stdin=ls.stdout)
+ls.wait()
+fullPath = (path + '/' + fileName).rstrip()
 
 args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
 
 def main():
-    talkpages = pywikibot.Page(site, u'Wikipedia:Elenchi generati offline/Discussioni utenti anonimi').linkedPages();
+    talkpages = pagegenerators.TextfilePageGenerator(fullPath)
     for talk in talkpages:
         static=False
         if talk.namespace() != 3 or not talk.exists() or not talk.canBeEdited():
@@ -25,7 +33,7 @@ def main():
         if checkStatic(talk.title(withNamespace=False)):
             newtext = oldtext + u'\n[[Categoria:IP statici]]'
             pywikibot.showDiff(oldtext, newtext)
-	    pywikibot.setAction(u'Bot: categorizzo in [[:Categoria:IP statici]]')
+	    pywikibot.setAction(u'Bot: categorizzo in [[:Categoria:IP statici]] ([[Utente:IncolaBot/FAQ|FAQ]])')
             talk.put(newtext)
         else:
             newtext = u'{{BenvenutoIP}}'
@@ -33,11 +41,11 @@ def main():
             if match != None:
                 newtext = match.group() + '\n' + newtext
             pywikibot.showDiff(oldtext, newtext)
-	    pywikibot.setAction(u'Bot: svuotata pagina ed inserito benvenuto')
+	    pywikibot.setAction(u'Bot: svuotata pagina ed inserito benvenuto ([[Utente:IncolaBot/FAQ|FAQ]])')
             talk.put(newtext)
 
 def checkStatic(ip):
-    response = commands.getoutput("dig -x " + ip + " +short")
+    response = subprocess.check_output(('dig', '-x', ip, '+short'))
     pywikibot.output('Dig response: ' + response)
     return bool(re.search('[Ss]tatic', response))
 
