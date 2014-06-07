@@ -5,40 +5,49 @@
     <title>IncolaBot - talk_ip.txt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <style>
-      body {
-        padding-top: 60px;
-      }
+        html {
+            height: 100%
+        }
+        body {
+            position: relative;
+            margin: 0;
+            padding-bottom: 4rem;
+            min-height: 100%;
+            padding-top: 50px;
+        }
+        .container {
+            width: 75% !important;
+        }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-    <![endif]-->
-  </head>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
 
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="index.html">IncolaBot</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="index.html">This project</a></li>
+          <a class="navbar-brand" href="https://tools.wmflabs.org/incolabot">IncolaBot</a>
+		  </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="https://tools.wmflabs.org/incolabot">This project</a></li>
               <li><a href="http://it.wikipedia.org/wiki/Utente:Incola">My userpage</a></li>
               <li><a href="http://it.wikipedia.org/wiki/Utente:IncolaBot">My bot</a></li>
-        <li><a href="http://it.wikipedia.org/w/index.php?title=Discussioni_utente:Incola&action=edit&section=new">Contact me</a></li>
+			  <li><a href="http://it.wikipedia.org/w/index.php?title=Discussioni_utente:Incola&action=edit&section=new">Contact me</a></li>
               </li>
             </ul>
           </div>
-        </div>
       </div>
     </div>
 
@@ -49,8 +58,6 @@
     <pre class="txt" style="font-family:monospace;"><?php echo utf8_encode(file_get_contents( "../log/talk_ip.txt" )); ?></pre>
 
     </div>
-
-  <script src="js/bootstrap.min.js"></script>
 
   </body>
 </html>
