@@ -26,21 +26,16 @@ def main():
         static=False
         if talk.namespace() != 3 or not talk.exists() or not talk.canBeEdited():
             continue
-        pywikibot.output(">>>>> " + talk.title() + " <<<<<")
+        pywikibot.output("\n>>>>> " + talk.title() + " <<<<<")
 
         oldtext = talk.get()
 
         if checkStatic(talk.title(withNamespace=False)):
-            newtext = oldtext + u'\n[[Categoria:IP statici]]'
-            pywikibot.showDiff(oldtext, newtext)
-	    pywikibot.setAction(u'Bot: categorizzo in [[:Categoria:IP statici]] ([[Utente:IncolaBot/FAQ|FAQ]])')
+            newtext = u'{{IPcondiviso}}\n' + oldtext
+	    pywikibot.setAction(u'Bot: aggiungo template IPcondiviso ([[Utente:IncolaBot/FAQ|FAQ]])')
             talk.put(newtext)
         else:
             newtext = u'{{BenvenutoIP}}'
-            match = re.search("\{\{IPcondiviso.*?\}\}", oldtext)
-            if match != None:
-                newtext = match.group() + '\n' + newtext
-            pywikibot.showDiff(oldtext, newtext)
 	    pywikibot.setAction(u'Bot: svuotata pagina ed inserito benvenuto ([[Utente:IncolaBot/FAQ|FAQ]])')
             talk.put(newtext)
 
