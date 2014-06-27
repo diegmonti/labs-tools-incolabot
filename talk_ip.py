@@ -10,7 +10,7 @@ from time import *
 
 start=time()
 
-path = '/data/project/lists/output/itwiki/EGO/Discussioni/Discussioni_utenti_anonimi'
+path = '/data/project/lists/output/itwiki/Discussioni/Discussioni_utenti_anonimi_da_svuotare'
 
 ls = subprocess.Popen(('ls', path), stdout=subprocess.PIPE)
 fileName = subprocess.check_output(('tail', '-1'), stdin=ls.stdout)
