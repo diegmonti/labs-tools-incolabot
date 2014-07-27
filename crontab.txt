@@ -7,7 +7,7 @@ PATH=/usr/local/bin:/usr/bin:/bin
 
 */5 * * * * jsub -N bar -mem 512m -o /data/project/incolabot/log/bar.txt -j y python /data/project/incolabot/bar.py > /dev/null
 
-0 4 * * 3 jsub -N talk_ip -mem 1g -o /data/project/incolabot/log/talk_ip.txt -j y python /data/project/incolabot/talk_ip.py > /dev/null
+0 3 5,20 * * jsub -N talk_ip -mem 1g -o /data/project/incolabot/log/talk_ip.txt -j y python /data/project/incolabot/talk_ip.py > /dev/null
 
 58 23 * * 0 jsub -N clear-maintupdate -o /dev/null -j y rm /data/project/incolabot/log/maintupdate.txt > /dev/null
 
@@ -15,4 +15,4 @@ PATH=/usr/local/bin:/usr/bin:/bin
 
 52 21 * * * jsub -N clear-bar -o /dev/null -j y rm /data/project/incolabot/log/bar.txt > /dev/null
 
-58 3 * * 3 jsub -N clear-talk_ip -o /dev/null -j y rm /data/project/incolabot/log/talk_ip.txt > /dev/null
+58 2 5,20 * * jsub -N clear-talk_ip -o /dev/null -j y rm /data/project/incolabot/log/talk_ip.txt > /dev/null
