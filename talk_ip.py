@@ -32,12 +32,10 @@ def main():
 
         if checkStatic(talk.title(withNamespace=False)):
             newtext = u'{{IPcondiviso}}\n' + oldtext
-	    pywikibot.setAction(u'Bot: aggiungo template IPcondiviso ([[Utente:IncolaBot/FAQ|FAQ]])')
-            talk.put(newtext)
+            talk.put(newtext, u'Bot: aggiungo template IPcondiviso ([[Utente:IncolaBot/FAQ|FAQ]])')
         else:
             newtext = u'{{BenvenutoIP}}'
-	    pywikibot.setAction(u'Bot: svuotata pagina ed inserito benvenuto ([[Utente:IncolaBot/FAQ|FAQ]])')
-            talk.put(newtext)
+            talk.put(newtext, u'Bot: aggiungo template BenvenutoIP ([[Utente:IncolaBot/FAQ|FAQ]])')
 
 def checkStatic(ip):
     response = subprocess.check_output(('dig', '-x', ip, '+short'))
