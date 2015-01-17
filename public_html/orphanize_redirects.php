@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>IncolaBot</title>
+    <title>IncolaBot - orphanize_redirects.txt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 		  </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="https://tools.wmflabs.org/incolabot">This project</a></li>
+              <li><a href="https://tools.wmflabs.org/incolabot">This project</a></li>
               <li><a href="http://it.wikipedia.org/wiki/Utente:Incola">My userpage</a></li>
               <li><a href="http://it.wikipedia.org/wiki/Utente:IncolaBot">My bot</a></li>
 			  <li><a href="http://it.wikipedia.org/w/index.php?title=Discussioni_utente:Incola&action=edit&section=new">Contact me</a></li>
@@ -53,26 +53,9 @@
 
     <div class="container">
 
-		<h2>What's this?</h2>
-		<p>Hi! I'm <a href="http://it.wikipedia.org/wiki/Utente:Incola">Incola</a> from itwiki.</p>
+    <h3>Log of orphanize_redirects.py</h3>
 
-    <h3>Code</h3>
-    <ul>
-      <li><a href="https://github.com/dmm42/labs-tools-incolabot/blob/master/bar.py">bar.py</a></li>
-      <li><a href="https://github.com/dmm42/labs-tools-incolabot/blob/master/createbar.py">createbar.py</a></li>
-      <li><a href="https://github.com/dmm42/labs-tools-incolabot/blob/master/maintupdate.py">maintupdate.py</a></li>
-      <li><a href="https://github.com/dmm42/labs-tools-incolabot/blob/master/talk_ip.py">talk_ip.py</a></li>
-      <li><a href="https://github.com/dmm42/labs-tools-incolabot/blob/master/orphanize_redirects.py">orphanize_redirects.py</a></li>
-    </ul>
-
-		<h3>Log</h3>
-    <ul>
-      <li><a href="bar.php">bar.txt</a></li>
-      <li><a href="createbar.php">createbar.txt</a></li>
-      <li><a href="maintupdate.php">maintupdate.txt</a></li>
-      <li><a href="talk_ip.php">talk_ip.txt</a></li>
-      <li><a href="orphanize_redirects.php">orphanize_redirects.txt</a></li>
-    </ul>
+    <pre class="txt" style="font-family:monospace;"><?php echo utf8_encode(file_get_contents( "../log/orphanize_redirects.txt" )); ?></pre>
 
     </div>
 

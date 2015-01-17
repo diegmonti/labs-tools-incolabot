@@ -9,6 +9,8 @@ PATH=/usr/local/bin:/usr/bin:/bin
 
 0 3 5,20 * * jsub -N talk_ip -mem 1g -o /data/project/incolabot/log/talk_ip.txt -j y python /data/project/incolabot/talk_ip.py > /dev/null
 
+0 3 10,25 * * jsub -N orphanize_redirects -mem 1g -o /data/project/incolabot/log/orphanize_redirects.txt -j y python /data/project/incolabot/orphanize_redirects.py > /dev/null
+
 58 23 * * 0 jsub -N clear-maintupdate -o /dev/null -j y rm /data/project/incolabot/log/maintupdate.txt > /dev/null
 
 58 21 * * 0 jsub -N clear-createbar -o /dev/null -j y rm /data/project/incolabot/log/createbar.txt > /dev/null
@@ -16,3 +18,5 @@ PATH=/usr/local/bin:/usr/bin:/bin
 52 21 * * * jsub -N clear-bar -o /dev/null -j y rm /data/project/incolabot/log/bar.txt > /dev/null
 
 58 2 5,20 * * jsub -N clear-talk_ip -o /dev/null -j y rm /data/project/incolabot/log/talk_ip.txt > /dev/null
+
+58 2 10,25 * * jsub -N clear-orphanize_redirects -o /dev/null -j y rm /data/project/incolabot/log/orphanize_redirects.txt > /dev/null
