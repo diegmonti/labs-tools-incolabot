@@ -17,7 +17,6 @@ fileName = subprocess.check_output(('tail', '-1'), stdin=ls.stdout)
 ls.wait()
 fullPath = (path + '/' + fileName).rstrip()
 
-args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
 
 def main():

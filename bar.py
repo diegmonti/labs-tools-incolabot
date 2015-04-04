@@ -120,7 +120,6 @@ def main():
 
     return
 
-args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
 commenttext = "Bot: aggiorno gli estratti delle discussioni al Bar"
 if __name__ == "__main__":
@@ -129,4 +128,4 @@ if __name__ == "__main__":
     finally:
         fine=time()
         print " Tempo di esecuzione della procedura= ", fine-inizio
-        print " Ora dell'ultimo aggiornamento: " ,ctime(time())
+        print " Ora dell'ultimo aggiornamento: ", ctime(time())

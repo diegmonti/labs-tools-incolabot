@@ -30,7 +30,6 @@ monthConv = {
     12: 'dicembre',
 }
 
-args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
 
 curYear = time.strftime("%Y")

@@ -3,7 +3,6 @@
 import pywikibot
 import csv
 
-args = pywikibot.handleArgs()
 site = pywikibot.Site('it', 'wikipedia')
 
 with open('/data/project/maintgraph/bot.csv', 'rb') as f:
