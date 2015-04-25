@@ -5,8 +5,7 @@
     <title>IncolaBot - maintupdate.txt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="//tools-static.wmflabs.org/static/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         html {
             height: 100%
@@ -23,8 +22,8 @@
         }
     </style>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="//tools-static.wmflabs.org/static/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//tools-static.wmflabs.org/static/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
   <body>
@@ -42,10 +41,9 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="https://tools.wmflabs.org/incolabot">This project</a></li>
-              <li><a href="http://it.wikipedia.org/wiki/Utente:Incola">My userpage</a></li>
-              <li><a href="http://it.wikipedia.org/wiki/Utente:IncolaBot">My bot</a></li>
-			  <li><a href="http://it.wikipedia.org/w/index.php?title=Discussioni_utente:Incola&action=edit&section=new">Contact me</a></li>
-              </li>
+              <li><a href="https://it.wikipedia.org/wiki/Utente:Incola">My userpage</a></li>
+              <li><a href="https://it.wikipedia.org/wiki/Utente:IncolaBot">My bot</a></li>
+			  <li><a href="https://it.wikipedia.org/w/index.php%3Ftitle%3DDiscussioni_utente%3AIncola%26action%3Dedit%26section%3Dnew">Contact me</a></li>
             </ul>
           </div>
       </div>
