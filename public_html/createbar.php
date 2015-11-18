@@ -53,7 +53,7 @@
 
     <h3>Log of createbar.py</h3>
 
-    <pre class="txt" style="font-family:monospace;"><?php echo utf8_encode(file_get_contents( "../log/createbar.txt" )); ?></pre>
+    <pre class="txt" style="font-family:monospace;"><?php echo file_get_contents( "../log/createbar.txt" ); ?></pre>
 
     </div>
 
