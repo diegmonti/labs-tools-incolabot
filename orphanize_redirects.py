@@ -146,7 +146,7 @@ def workon(page, redirect, delete):
                 continue
             try:
                 text = treat(text, page2, target, redirect, delete)
-            except pywikibot.Error:
+            except (pywikibot.Error, ValueError):
                 continue
     if text != page.get():
         comment = u'Bot: orfanizzo redirect [[%s]]' % redirect.title()
