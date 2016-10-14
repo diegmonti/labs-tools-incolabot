@@ -121,7 +121,7 @@ def main():
     return
 
 site = pywikibot.Site('it', 'wikipedia')
-commenttext = "Bot: aggiorno gli estratti delle discussioni al Bar"
+commenttext = "Bot: aggiorno gli estratti delle discussioni al bar"
 if __name__ == "__main__":
     try:
         main()

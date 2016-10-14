@@ -44,7 +44,7 @@ def create_only(page, text, summary):
         pywikibot.output("{} already exists: skip.".format(page))
 
 pageBarTitle = pywikibot.Page(site, "Wikipedia:Bar/{anno} {mese} {giorno}".format(anno=curYear, mese=curMonth, giorno=curDay))
-pageBarText = ("<noinclude>\n{{{{Bar7/light}}}}\n={giorno} {mese}=\n__TOC__\n[[Categoria:Wikipedia Bar - {giorno} {mese} {anno}]]\n"
+pageBarText = ("<noinclude>{{{{Bar7/light}}}}\n={giorno} {mese}=\n__TOC__\n[[Categoria:Wikipedia Bar - {giorno} {mese} {anno}]]\n"
                "[[Categoria:Archivio bar]]\n</noinclude>"
                ).format(giorno=curDay, mese=monthConv[int(curMonth)], anno=curYear)
 
