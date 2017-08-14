@@ -21,13 +21,13 @@ inizio=time()
 titlelistAux = []
 
 def findtitle(t):
-    search_string = "(?m)\{\{[Bb]ar\d\/Segnala(disc|est)\|([^|}\n]*)(}}|\|)([^|}\n]*)"
+    search_string = "(?m)\{\{[Bb]ar\d\/Segnala(disc|est)\|(1=)?([^|}\n]*)(}}|\|)(2=)?([^|}\n]*)"
     try:
         location = re.search(search_string, t)
         kind  = location.group(1)
-        link  = location.group(2)
-        name  = location.group(4)
-    #print "INIZIO:"+kind +" (2: " +title +" (4: " + name + " :FINE"
+        link  = location.group(3)
+        name  = location.group(6)
+    #print "INIZIO:"+kind +" (3: " +title +" (6: " + name + " :FINE"
     except AttributeError:
         #pywikibot.output(u"End of file reached.")
         return
