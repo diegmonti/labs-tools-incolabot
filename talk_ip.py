@@ -16,8 +16,8 @@ site = pywikibot.Site('it', 'wikipedia')
 
 
 def main():
-    subprocess.run('mysql --defaults-file=~/replica.my.cnf -h ' +
-                   'itwiki.analytics.db.svc.eqiad.wmflabs -BN < talk_ip.sql > talk_ip.out', shell=True, check=True)
+    subprocess.check_call('mysql --defaults-file=~/replica.my.cnf -h ' +
+                          'itwiki.analytics.db.svc.eqiad.wmflabs -BN < talk_ip.sql > talk_ip.out', shell=True)
 
     talkpages = pagegenerators.TextfilePageGenerator('talk_ip.out')
     for talk in talkpages:
