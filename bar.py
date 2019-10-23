@@ -69,7 +69,7 @@ def main():
     #days.append(time.gmtime(theTime-5*siad))
     #days.append(time.gmtime(theTime-6*siad))
 
-    for i in range(0,6+1):
+    for i in range(0,13+1):
         day = localtime(theTime-i*siad)
         y = str(day[0])
         m = str(day[1]).zfill(2)
