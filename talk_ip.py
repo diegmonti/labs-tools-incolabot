@@ -9,6 +9,7 @@ import re
 import subprocess
 
 from pywikibot import pagegenerators
+from pywikibot.exceptions import LockedPage
 from time import *
 
 start = time()
@@ -21,25 +22,29 @@ def main():
 
     talkpages = pagegenerators.TextfilePageGenerator('talk_ip.out')
     for talk in talkpages:
-        static = False
+
         if talk.namespace() != 3 or not talk.exists() or not talk.canBeEdited():
             continue
+
         pywikibot.output("\n>>>>> " + talk.title() + " <<<<<")
 
         oldtext = talk.get()
 
-        if checkStatic(talk.title(withNamespace=False)):
-            newtext = u'{{IPcondiviso}}\n' + oldtext
-            talk.put(
-                newtext, u'Bot: aggiungo template IPcondiviso ([[Utente:IncolaBot/FAQ|FAQ]])')
-        else:
-            newtext = u'{{BenvenutoIP}}'
-            talk.put(
-                newtext, u'Bot: aggiungo template BenvenutoIP ([[Utente:IncolaBot/FAQ|FAQ]])')
+        try:
+            if checkStatic(talk.title(withNamespace=False)):
+                newtext = u'{{IPcondiviso}}\n' + oldtext
+                talk.put(
+                    newtext, u'Bot: aggiungo template IPcondiviso ([[Utente:IncolaBot/FAQ|FAQ]])')
+            else:
+                newtext = u'{{BenvenutoIP}}'
+                talk.put(
+                    newtext, u'Bot: aggiungo template BenvenutoIP ([[Utente:IncolaBot/FAQ|FAQ]])')
+        except LockedPage:
+            continue
 
 
 def checkStatic(ip):
-    response = subprocess.check_output(('dig', '-x', ip, '+short'))
+    response = str(subprocess.check_output(['dig', '-x', ip, '+short']))
     pywikibot.output('Dig response: ' + response)
     return bool(re.search('[Ss]tatic', response))
 
@@ -49,4 +54,4 @@ if __name__ == "__main__":
         main()
     finally:
         end = time()
-        print "Run time: ", end-start
+        print("Run time:", end-start)

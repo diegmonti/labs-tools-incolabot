@@ -127,5 +127,5 @@ if __name__ == "__main__":
         main()
     finally:
         fine=time()
-        print " Tempo di esecuzione della procedura= ", fine-inizio
-        print " Ora dell'ultimo aggiornamento: ", ctime(time())
+        print(" Tempo di esecuzione della procedura=", fine-inizio)
+        print(" Ora dell'ultimo aggiornamento:", ctime(time()))

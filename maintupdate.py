@@ -5,9 +5,9 @@ import csv
 
 site = pywikibot.Site('it', 'wikipedia')
 
-with open('/data/project/maintgraph/bot.csv', 'rb') as f:
+with open('/data/project/maintgraph/bot.csv', 'r') as f:
     reader = csv.reader(f)
-    line = reader.next()
+    line = next(reader)
 
 page = pywikibot.Page(site, u"Template:Situazione_lavoro_sporco/Controllare_copyright")
 page.put(line[5], u"Bot: aggiorno statistiche manutenzioni")
