@@ -114,7 +114,7 @@ def main():
             contents = contents[:(len(contents)-10)] + "</dd></dl>"
         #
         if contents != contentsOld:
-            abstract.put(contents, comment = commenttext, minorEdit = False)
+            abstract.put(contents, commenttext, minorEdit = False)
         else:
             pywikibot.output(u"Aggiornamento non necessario")
 
