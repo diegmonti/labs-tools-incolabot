@@ -9,7 +9,7 @@ import re
 import subprocess
 
 from pywikibot import pagegenerators
-from pywikibot.exceptions import LockedPage
+from pywikibot.exceptions import LockedPageError
 from time import *
 
 start = time()
@@ -20,10 +20,10 @@ def main():
     subprocess.check_call('mysql --defaults-file=~/replica.my.cnf -h ' +
                           'itwiki.analytics.db.svc.eqiad.wmflabs -BN < talk_ip.sql > talk_ip.out', shell=True)
 
-    talkpages = pagegenerators.TextfilePageGenerator('talk_ip.out')
+    talkpages = pagegenerators.TextIOPageGenerator('talk_ip.out')
     for talk in talkpages:
 
-        if talk.namespace() != 3 or not talk.exists() or not talk.canBeEdited():
+        if talk.namespace() != 3 or not talk.exists() or not talk.botMayEdit():
             continue
 
         pywikibot.output("\n>>>>> " + talk.title() + " <<<<<")
@@ -31,7 +31,7 @@ def main():
         oldtext = talk.get()
 
         try:
-            if checkStatic(talk.title(withNamespace=False)):
+            if checkStatic(talk.title(with_ns=False)):
                 newtext = u'{{IPcondiviso}}\n' + oldtext
                 talk.put(
                     newtext, u'Bot: aggiungo template IPcondiviso ([[Utente:IncolaBot/FAQ|FAQ]])')
@@ -39,7 +39,7 @@ def main():
                 newtext = u'{{BenvenutoIP}}'
                 talk.put(
                     newtext, u'Bot: aggiungo template BenvenutoIP ([[Utente:IncolaBot/FAQ|FAQ]])')
-        except LockedPage:
+        except LockedPageError:
             continue
 
 
