@@ -19,7 +19,7 @@ AND page_id NOT IN (
    SELECT tl_from
    FROM templatelinks
    LEFT JOIN page ON tl_from = page_id
-   WHERE (tl_title = 'BenvenutoIP'
+   WHERE (tl_target_id = 621
 		AND page_len <= 15)
-   OR tl_title = 'IPcondiviso')
+   OR tl_target_id = 2043)
 ORDER BY rev_timestamp;
