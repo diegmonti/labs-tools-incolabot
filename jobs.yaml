@@ -1,0 +1,51 @@
+# https://wikitech.wikimedia.org/wiki/Help:Toolforge/Jobs_framework
+---
+- name: maintupdate
+  command: $HOME/pwbvenv/bin/python3 $HOME/maintupdate.py
+  image: python3.9
+  schedule: "0 7 * * *"
+  emails: onfailure
+  filelog-stdout: $HOME/log/maintupdate.txt
+  filelog-stderr: $HOME/log/maintupdate.txt
+- name: createbar
+  command: $HOME/pwbvenv/bin/python3 $HOME/createbar.py
+  image: python3.9
+  schedule: "0 22,23 * * *"
+  emails: onfailure
+  filelog-stdout: $HOME/log/createbar.txt
+  filelog-stderr: $HOME/log/createbar.txt
+- name: bar
+  command: $HOME/pwbvenv/bin/python3 $HOME/bar.py
+  image: python3.9
+  schedule: "*/5 * * * *"
+  emails: onfailure
+  filelog-stdout: $HOME/log/bar.txt
+  filelog-stderr: $HOME/log/bar.txt
+- name: talk-ip
+  command: $HOME/pwbvenv/bin/python3 $HOME/talk_ip.py
+  image: python3.9
+  schedule: "0 3 5,20 * *"
+  emails: onfailure
+  mem: 1Gi
+  filelog-stdout: $HOME/log/talk_ip.txt
+  filelog-stderr: $HOME/log/talk_ip.txt
+- name: clear-maintupdate
+  command: rm $HOME/log/maintupdate.txt
+  image: bullseye
+  schedule: "58 6 * * 0"
+  emails: onfailure
+- name: clear-createbar
+  command: rm $HOME/log/createbar.txt
+  image: bullseye
+  schedule: "58 21 * * 0"
+  emails: onfailure
+- name: clear-bar
+  command: rm $HOME/log/bar.txt
+  image: bullseye
+  schedule: "52 21 * * *"
+  emails: onfailure
+- name: clear-talk-ip
+  command: rm $HOME/log/talk_ip.txt
+  image: bullseye
+  schedule: "58 2 5,20 * *"
+  emails: onfailure
