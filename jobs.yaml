@@ -34,18 +34,26 @@
   image: bullseye
   schedule: "58 6 * * 0"
   emails: onfailure
+  filelog-stdout: /dev/null
+  filelog-stderr: /dev/null
 - name: clear-createbar
   command: rm $HOME/log/createbar.txt
   image: bullseye
   schedule: "58 21 * * 0"
   emails: onfailure
+  filelog-stdout: /dev/null
+  filelog-stderr: /dev/null
 - name: clear-bar
   command: rm $HOME/log/bar.txt
   image: bullseye
   schedule: "52 21 * * *"
   emails: onfailure
+  filelog-stdout: /dev/null
+  filelog-stderr: /dev/null
 - name: clear-talk-ip
   command: rm $HOME/log/talk_ip.txt
   image: bullseye
   schedule: "58 2 5,20 * *"
   emails: onfailure
+  filelog-stdout: /dev/null
+  filelog-stderr: /dev/null
