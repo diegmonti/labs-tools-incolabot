@@ -1,0 +1,8 @@
+.*
+!.gitignore
+pwbvenv/*
+*.manifest
+*.cnf
+*.err
+*.log
+*.out
