@@ -14,6 +14,7 @@ import time
 import pywikibot
 
 os.environ['TZ'] = 'Europe/Rome'
+time.tzset()
 
 monthConv = {
     1: 'gennaio',
