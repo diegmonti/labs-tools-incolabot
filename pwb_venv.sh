@@ -12,3 +12,4 @@ source pwbvenv/bin/activate
 # install dependencies
 pip install --upgrade pip setuptools wheel
 pip install pywikibot[mwoauth]
+pip install pymysql
