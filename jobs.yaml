@@ -10,7 +10,7 @@
 - name: createbar
   command: $HOME/pwbvenv/bin/python3 $HOME/createbar.py
   image: python3.9
-  schedule: "0 22,23 * * *"
+  schedule: "0 * * * *"
   emails: onfailure
   filelog-stdout: log/createbar.txt
   filelog-stderr: log/createbar.txt
