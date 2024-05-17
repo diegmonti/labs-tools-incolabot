@@ -56,3 +56,6 @@ page.put(line[10], u"Bot: aggiorno statistiche manutenzioni")
 
 page = pywikibot.Page(site, u"Template:Situazione_lavoro_sporco/Organizzare")
 page.put(line[11], u"Bot: aggiorno statistiche manutenzioni")
+
+page = pywikibot.Page(site, u"Template:Situazione_lavoro_sporco/Contestualizzare_fonti")
+page.put(line[16], u"Bot: aggiorno statistiche manutenzioni")
